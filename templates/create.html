@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #FFD700; /* Fondo dorado brillante */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 60%;
+            background-color: #FFDEDE; /* Color blanco brillante */
+            border: 2px solid #FF0000; /* Borde rojo */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #FF0000; /* Títulos en color rojo */
+        }
+
+        input[type="submit"] {
+            background-color: #FFD700; /* Botón dorado brillante */
+            color: #000000; /* Texto negro */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto; /* Centrar el botón */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FFC700; /* Cambio de color al pasar el mouse */
+        }
+    </style>
+    <title>Formulario de Django</title>
+</head>
+<body>
+    <div class="card">
+        <h2>Crear Objeto</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+</body>
+</html>
+

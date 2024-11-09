@@ -1,0 +1,76 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Publicaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 63%, 40%); /* Color de fondo más claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: hsl(71, 100%, 62%); /* Color amarillo para la tarjeta */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px #e90909fa;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #3c3c3c; /* Color para el título */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: hsl(209, 93%, 48%); /* Color para las etiquetas */
+        }
+
+        input[type="text"], input[type="file"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid hsl(88, 84%, 35%);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: hsl(110, 76%, 45%); /* Color más oscuro de amarillo */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: hsl(12, 61%, 48%); /* Color amarillo al pasar el cursor */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Actualizar Publicación</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group">
+                <input type="submit" value="Actualizar">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

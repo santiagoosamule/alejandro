@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <h2> hola {{ user.usarname}}</h2>
+    <a> href="{% url 'post' %}">Cristiano_Ronaldo_Manchester_United_2013</a>
+    {% else %}
+    <h2> si no tienes una cuenta</h2>
+    <h3>ingresa usuario
+        <a href="{% url 'login' %}">log in</a>
+        <h3>Registrarte</h3>
+        <a>href="{% url 'signup' %}">signup</a>
+        {% endif %}
+    </h3>
+</body>
+</html>

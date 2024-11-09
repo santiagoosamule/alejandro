@@ -1,0 +1,104 @@
+ 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Interactiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 0%, 0%);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .navbar {
+            background-color: hwb(182 0% 36%); /* Color principal del Real Madrid */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(230, 229, 229, 0);
+        }
+        .navbar img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: hwb(0 0% 100%);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #ffcc00; /* Color al pasar el mouse */
+            color: #000000;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        #logo-container, #cristiano-container {
+            display: none;
+            margin-top: 20px;
+        }
+        #logo-container img, #cristiano-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            background-color: #ffcc00; /* Botón de invitado */
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0ea3e7; /* Color al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Real_Madrid_CF.svg" alt="Bienvenido">
+        <div>
+            <a href="{% url 'post'%}" onclick="showLogo()">home</a>
+            <a href="{% url 'create' %}">create</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input onclick="logout()" type="submit" value="logout">
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/3d/Real_Madrid_CF.png" alt="¿NECESITA ALGO?">
+        </div>
+        <div id="cristiano-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Cristiano_Ronaldo_Manchester_United_2013.jpg" alt="Cristiano Ronaldo">
+        </div>
+    </div>
+
+    <script>
+        function showLogo() {
+            document.getElementById('logo-container').style.display = 'block';
+            document.getElementById('cristiano-container').style.display = 'none';
+        }
+
+        function showCristiano() {
+            document.getElementById('cristiano-container').style.display = 'block';
+            document.getElementById('logo-container').style.display = 'none';
+        }
+
+        function logout() {
+            alert("Has cerrado sesión.");
+        }
+    </script>
+
+</body>
+</html>

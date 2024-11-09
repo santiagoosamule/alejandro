@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Producto</title>
+    <style>
+        /* Aquí irán tus estilos CSS */
+    </style>
+</head>
+<body>
+    <div class="producto">
+        <img src="ruta/a/tu/imagen.jpg" alt="Imagen del producto">
+        <h2>{{post.titulo}}</h2>
+        <p class="precio">Precio: ${{post.precio}}</p>
+        <button class="boton-rojo">{{post.descripcion}}</button>
+    </div>
+</body>
+</html>
+<a href="{% url 'update' post.pk %}">Actualizar</a>
+
+<a href="{% url 'delete' post.pk %}">Eliminar</a>
+
+</body>
+</html>
